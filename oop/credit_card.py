@@ -24,7 +24,8 @@ class CreditCard:
         return self._bank
 
     def get_account(self):
-        """Return the card identifying number 
+        """
+        Return the card identifying number 
         (typically stored as a string).
         """
         return self._account
@@ -42,8 +43,8 @@ class CreditCard:
         Charge given price to the card, assuming sufficient credit limit.
         Return True if charge was processed; False if charge was denied.
         """
-        if price + self._balance > self._limit: # if charge would exceed limit,
-            return False # cannot accept charge
+        if price + self._balance > self._limit:   # if charge would exceed limit,
+            return False                          # cannot accept charge
         else:
             self._balance += price
             return True
@@ -51,6 +52,7 @@ class CreditCard:
     def make_payment(self, amount):
         """Process customer payment that reduces balance."""
         self._balance -= amount
+
 
 class PredatoryCreditCard(CreditCard):
     """An extension to CreditCard that compounds interest and fees."""
@@ -116,4 +118,3 @@ if __name__ == '__main__':
             wallet[c].make_payment(100)
             print('New Balance = ', wallet[c].get_balance())
         print()
-
