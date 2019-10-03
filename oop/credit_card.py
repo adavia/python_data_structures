@@ -55,6 +55,7 @@ class CreditCard:
 
 
 class PredatoryCreditCard(CreditCard):
+    FEE = 5
     """An extension to CreditCard that compounds interest and fees."""
 
     def __init__(self, customer, bank, account, limit, apr):
@@ -81,7 +82,7 @@ class PredatoryCreditCard(CreditCard):
         """
         success = super().charge(price)
         if not success:
-            self._balance += 5
+            self._balance += PredatoryCreditCard.FEE
         return success
     
     def process_month(self):
